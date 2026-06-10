@@ -37,15 +37,15 @@ function AddMemoryPage({ addMemory }) {
         
         return 'calm';
 
-    }
+    } 
 
     function saveEntry() {
-        if {entry.trim() === ''} return;
+        if (entry.trim() === '') return;
 
         const NewMemory = {
             id: Date.now(),
             text: entry,
-            emotion: detectEmotion(entry)
+            emotion: detectEmotion(entry),
             x: Math.random() * 100,
             y: Math.random() * 100,
             createdAt: new Date().toISOString()
@@ -79,3 +79,4 @@ function AddMemoryPage({ addMemory }) {
     );
 
 }
+export default AddMemoryPage;

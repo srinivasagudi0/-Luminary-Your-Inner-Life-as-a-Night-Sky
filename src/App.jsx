@@ -15,7 +15,11 @@ function App() {
     const savedMemories = localStorage.getItem('luminary-memories');
 
     if (savedMemories) {
-      setMemories(JSON.parse(savedMemories));
+      try {
+        setMemories(JSON.parse(savedMemories));
+      } catch {
+        localStorage.removeItem('luminary-memories');
+      }
     }
 
     setHasLoaded(true);

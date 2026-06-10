@@ -27,7 +27,7 @@ function SkyPage({memories, selectedMemory, setSelectedMemory}) {
                     some glow with calm, and some quietly hold what you felt 
                 </p>
 
-                <button onclick={supriseMe}>
+                <button onClick={supriseMe}>
                     Suprise Me
                 </button>
             </section>
@@ -66,7 +66,7 @@ function SkyPage({memories, selectedMemory, setSelectedMemory}) {
         ))}
       </div>
 
-      {selctedMemory && (
+      {selectedMemory && (
         <div>
             <h2>{selectedMemory.starName || "Memory Star"}</h2>
             <p>{selectedMemory.text}</p>
