@@ -70,16 +70,15 @@ function AddMemoryPage({ addMemory }) {
                     value={entry}
                     onChange={(e) => setEntry(e.target.value)}
                 />
+                <br />
             
                 <button onClick={saveEntry} className="primary-button">
                     Plant Star
                 </button>
             </section>
-            
         </main>
     );
 
 
 }
 export default AddMemoryPage;
-

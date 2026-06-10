@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function SkyPage({memories, selectedMemory, setSelectedMemory}) {
-    const [supriseMemory, setSuprseMemory] = useState(null);
+    const [supriseMemory, setSupriseMemory] = useState(null);
 
     function getStarColor(emotion) {
         if (emotion === 'joy') return 'gold';
@@ -41,7 +41,7 @@ function SkyPage({memories, selectedMemory, setSelectedMemory}) {
                         Open it and revist the moment it holds.
                     </p>
 
-                    <button onClick={() => setSelectedMemory(supriseMemory)}>Veiw Memory</button>
+                    <button onClick={() => setSelectedMemory(supriseMemory)}>View Memory</button>
 
                     <button onClick={() => setSupriseMemory(null)}>Close</button>
 
