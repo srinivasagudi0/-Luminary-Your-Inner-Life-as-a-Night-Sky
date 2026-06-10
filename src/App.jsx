@@ -1,11 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import './App.css';
 
 function App() {
   const [entry, setEntry] = useState('');
   const [memories, setMemories] = useState([]);
   const [selectedMemory, setSelectedMemory] = useState(null);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
+  useEffect(() => {
+    const savedMemories = localStorage.getItem('memories');
+    if (savedMemories) {
+      setMemories(JSON.parse(savedMemories));
+    }
+    setHasLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasLoaded) return;
+
+    localStorage.setItem('memories', JSON.stringify(memories));
+  }, [hasLoaded, memories]);
 
   function saveEntry() {
     if (entry.trim() === '') return;
@@ -16,6 +31,7 @@ function App() {
       emotion: detectEmotion(entry),
       x: Math.random() * 90,
       y: Math.random() * 70,
+      createdAt: new Date().toLocaleString()
     };
     setMemories([...memories, newMemory]);
     setEntry('');
@@ -57,12 +73,13 @@ function App() {
     if (emotion === 'anger') return 'tomato';
     return 'white';
   }
-
+  
 
   return (
     <div>
       <h1>Luminary</h1>
       <p>Your inner life as a night sky</p>
+      <br />
 
       <textarea
         placeholder="Write a thought, memory, or gratitude..."
@@ -70,16 +87,22 @@ function App() {
         onChange={(event) => setEntry(event.target.value)}
         />
       <br />
+      <br />
 
-      <button onClick={saveEntry}>Plant Star</button>
+      <button onClick={saveEntry}>Plant Star</button> 
+      
+      <br />
 
       {selectedMemory && (
-        <div>
+        <div className="memory-details">
           <h2>Memory</h2>
           <p>{selectedMemory.text}</p>
+          <p>Created: {selectedMemory.createdAt}</p>
           <p>Emotion: {selectedMemory.emotion}</p>
+          <button onClick={() => setSelectedMemory(null)}>Close</button>
         </div>
       )}
+      <br />
 
       <h2>Memories</h2>
       
@@ -99,9 +122,10 @@ function App() {
           />
         ))}
       </div>
-
     </div>
   );
 }
 
+
 export default App;
+
