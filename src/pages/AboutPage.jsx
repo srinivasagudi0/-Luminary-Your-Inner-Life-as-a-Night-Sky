@@ -9,18 +9,27 @@ function AboutPage() {
                     a living star in you rnight sky.
                 </p>
 
+                <br / >
+                <br / >
+
                 <h2>How it works</h2>
                 <p>
-                    You write a memory like you would in a regular journal.
+                    You write a memory like you would in a regular journal.<br />
                     Luminary plants it as a star.
                     <em>The color of the star reflects the feeling inside the memory.</em>
                 </p>
                 
+                <br / >
+                <br / >
+
                 <h2>Privacy</h2>
                 <p>
-                    Don't worry, your memories never leave your device. 
+                    Don't worry, your memories never leave your device. <br />
                     We use local storage to keep your data safe and private.
                 </p>
+
+                <br / >
+                <br / >
 
                 <h2>Coming Soon</h2>
                 <p>

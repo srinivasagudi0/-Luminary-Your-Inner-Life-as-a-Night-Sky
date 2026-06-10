@@ -23,7 +23,7 @@ function SkyPage({memories, selectedMemory, setSelectedMemory}) {
             <section className="hero">
                 <h1>Your Inner Sky</h1>
                 <p>
-                    Every Moment you plant beccomes a star. Some shine with joy, 
+                    Every Moment you plant beccomes a star. Some shine with joy, <br />
                     some glow with calm, and some quietly hold what you felt 
                 </p>
 
@@ -37,7 +37,7 @@ function SkyPage({memories, selectedMemory, setSelectedMemory}) {
                     <h2>A Memory Found You</h2>
 
                     <p>
-                        A star from your past has drifted forward.
+                        A star from your past has drifted forward. <br />
                         Open it and revist the moment it holds.
                     </p>
 

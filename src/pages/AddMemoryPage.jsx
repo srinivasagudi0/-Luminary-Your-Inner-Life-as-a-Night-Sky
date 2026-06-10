@@ -46,9 +46,9 @@ function AddMemoryPage({ addMemory }) {
             id: Date.now(),
             text: entry,
             emotion: detectEmotion(entry),
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            createdAt: new Date().toISOString()
+            x: Math.random() * 90,
+            y: Math.random() * 70,
+            createdAt: new Date().toLocaleString()
         };
 
         addMemory(NewMemory);
@@ -63,6 +63,7 @@ function AddMemoryPage({ addMemory }) {
                     Write a thought like you would in a diary.
                     Luminary will turn it into star in your sky.
                 </p>
+                <br />
 
                 <textarea
                     placeholder="Write your memory here..."
@@ -78,5 +79,7 @@ function AddMemoryPage({ addMemory }) {
         </main>
     );
 
+
 }
 export default AddMemoryPage;
+
