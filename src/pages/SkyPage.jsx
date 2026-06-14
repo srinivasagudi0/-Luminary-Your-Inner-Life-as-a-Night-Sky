@@ -1,85 +1,105 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function SkyPage({memories, selectedMemory, setSelectedMemory}) {
-    const [supriseMemory, setSupriseMemory] = useState(null);
+const emotionNames = {
+  happy: 'Joy',
+  joy: 'Joy',
+  calm: 'Calm',
+  sadness: 'Sadness',
+  anger: 'Anger',
+};
 
-    function getStarColor(emotion) {
-        if (emotion === 'joy') return 'gold';
-        if (emotion === 'sadness') return 'skyblue';
-        if (emotion === 'anger') return 'tomato';
-        return 'white';
-    }
+function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
+  const [surpriseMemory, setSurpriseMemory] = useState(null);
 
-    function supriseMe() {
-        if (memories.length === 0) return;
+  function findMemory() {
+    if (!memories.length) return;
+    setSurpriseMemory(memories[Math.floor(Math.random() * memories.length)]);
+  }
 
-        const randomIndex = Math.floor(Math.random() * memories.length);
-        const randomMemory = memories[randomIndex];
+  function revealMemory() {
+    setSelectedMemory(surpriseMemory);
+    setSurpriseMemory(null);
+  }
 
-        setSupriseMemory(randomMemory);
-    }
-    return (
-        <main className="page sky-page">
-            <section className="hero">
-                <h1>Your Inner Sky</h1>
-                <p>
-                    Every Moment you plant beccomes a star. Some shine with joy, <br />
-                    some glow with calm, and some quietly hold what you felt 
-                </p>
+  return (
+    <main className="sky-page">
+      <header className="sky-heading">
+        <div>
+          <span className="kicker">Your private universe</span>
+          <h1>Your Inner Sky</h1>
+          <p>Each star is a moment you chose to remember.</p>
+        </div>
 
-                <button onClick={supriseMe}>
-                    Suprise Me
-                </button>
-            </section>
+        <div className="sky-controls">
+          <span className="star-count">
+            <strong>{memories.length}</strong> {memories.length === 1 ? 'memory' : 'memories'}
+          </span>
+          <button onClick={findMemory} disabled={!memories.length}>Surprise me</button>
+        </div>
+      </header>
 
-            {supriseMemory && (
-                <div className="suprise-card">
-                    <h2>A Memory Found You</h2>
+      <section className="sky" aria-label="Memory sky">
+        <div className="sky-legend" aria-label="Emotion colors">
+          <span><i className="happy" />Joy</span>
+          <span><i className="calm" />Calm</span>
+          <span><i className="sadness" />Sadness</span>
+          <span><i className="anger" />Anger</span>
+        </div>
 
-                    <p>
-                        A star from your past has drifted forward. <br />
-                        Open it and revist the moment it holds.
-                    </p>
+        {!memories.length && (
+          <div className="empty-sky">
+            <div className="empty-star" />
+            <h2>Your sky is empty</h2>
+            <p>Write down a moment and give it a place to shine.</p>
+            <Link to="/add">Plant your first memory</Link>
+          </div>
+        )}
 
-                    <button onClick={() => setSelectedMemory(supriseMemory)}>View Memory</button>
-
-                    <button onClick={() => setSupriseMemory(null)}>Close</button>
-
-                    
-                </div>
-            )} 
-
-           <div className="sky">
-        {memories.map((memory) => (
-          <div
+        {memories.map((memory, index) => (
+          <button
             key={memory.id}
-            onClick={() => setSelectedMemory(memory)}
             className={`star ${memory.emotion}`}
             style={{
-              left: `${memory.x}%`,
-              top: `${memory.y}%`,
-              background: memory.color || getStarColor(memory.emotion),
-              boxShadow: `0 0 12px ${memory.color || getStarColor(memory.emotion)}`,
+              left: `${Math.max(4, Math.min(96, memory.x))}%`,
+              top: `${Math.max(10, Math.min(92, memory.y))}%`,
+              animationDelay: `${index * -0.4}s`,
             }}
-            title={memory.text}
+            onClick={() => setSelectedMemory(memory)}
+            aria-label={`Open memory: ${memory.text}`}
           />
         ))}
-      </div>
+
+        <p className="sky-hint">Select a star to revisit its memory</p>
+      </section>
 
       {selectedMemory && (
-        <div>
-            <h2>{selectedMemory.starName || "Memory Star"}</h2>
-            <p>{selectedMemory.text}</p>
-
-            <p>Emotion: {selectedMemory.emotion}</p>
-            {selectedMemory.createdAt && <p>{selectedMemory.createdAt}</p>}
-        </div>
+        <aside className="memory-panel">
+          <button className="close" onClick={() => setSelectedMemory(null)} aria-label="Close">X</button>
+          <span className={`emotion ${selectedMemory.emotion}`}>
+            {emotionNames[selectedMemory.emotion] || 'Memory'}
+          </span>
+          <h2>{selectedMemory.starName || 'A moment in your sky'}</h2>
+          <p>{selectedMemory.text}</p>
+          {selectedMemory.createdAt && <time>{selectedMemory.createdAt}</time>}
+        </aside>
       )}
 
-      </main>
-    )
+      {surpriseMemory && (
+        <div className="modal-backdrop" onClick={() => setSurpriseMemory(null)}>
+          <section className="surprise-card" onClick={(event) => event.stopPropagation()}>
+            <span className="kicker">A star found you</span>
+            <h2>Ready to look back?</h2>
+            <p>One of your memories has drifted into view.</p>
+            <div>
+              <button onClick={revealMemory}>Open memory</button>
+              <button className="button-muted" onClick={() => setSurpriseMemory(null)}>Close</button>
+            </div>
+          </section>
+        </div>
+      )}
+    </main>
+  );
 }
 
 export default SkyPage;
-
- 

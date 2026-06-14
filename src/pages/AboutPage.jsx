@@ -3,33 +3,30 @@ function AboutPage() {
         <main className="page about-page">
             <section className="about-card">
                 <h1>About Luminary</h1>
+                <br/>
+                <br/>
 
                 <p>
                     Luminary is a mood and memory journal where very entry becomes 
-                    a living star in you rnight sky.
+                    a living star in your night sky.
                 </p>
-
-                <br / >
-                <br / >
+                
 
                 <h2>How it works</h2>
                 <p>
                     You write a memory like you would in a regular journal.<br />
-                    Luminary plants it as a star.
+                    Luminary plants it as a star.<br />
                     <em>The color of the star reflects the feeling inside the memory.</em>
                 </p>
-                
-                <br / >
-                <br / >
+            
 
                 <h2>Privacy</h2>
                 <p>
                     Don't worry, your memories never leave your device. <br />
                     We use local storage to keep your data safe and private.
                 </p>
+                <br/>
 
-                <br / >
-                <br / >
 
                 <h2>Coming Soon</h2>
                 <p>
