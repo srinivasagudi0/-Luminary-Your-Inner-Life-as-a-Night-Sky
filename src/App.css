@@ -274,3 +274,57 @@ star.joy {
     0 0 12px var(--green),
     0 0 30px rgba(134, 239, 172, 0.42);
 }
+
+.suprise-card,
+.sky-page > div:not(.hero):not(.sky):not(.suprise-card),
+.add-page,
+.about-card {
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.suprise-card {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 50;
+  width: min(460px, calc(100% - 32px));
+  padding: 28px;
+  text-align: left;
+  transform: translate(-50%, -50%);
+}
+
+.suprise-card::before {
+  content: "";
+  position: fixed;
+  inset: -100vmax;
+  z-index: -1;
+  background: rgba(2, 3, 10, 0.62);
+}
+
+.suprise-card h2,
+.sky-page > div:not(.hero):not(.sky):not(.suprise-card) h3,
+.about-page h2 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.suprise-card p,
+.sky-page > div:not(.hero):not(.sky):not(.suprise-card) p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.suprise-card button + button {
+  margin-left: 10px;
+  color: var(--text);
+  background: transparent;
+  box-shadow: none;
+}
