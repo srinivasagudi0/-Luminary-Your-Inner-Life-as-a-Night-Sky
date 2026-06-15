@@ -1,0 +1,4 @@
+openai
+express
+cors
+dotenv

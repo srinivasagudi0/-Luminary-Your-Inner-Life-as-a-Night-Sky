@@ -1,9 +1,37 @@
 import { useState } from 'react';
+import Openai from 'openai';
+
+
 
 function AddMemoryPage({ addMemory }) {
     const [entry, setEntry] = useState('');
 
     function detectEmotion(text) {
+    const openai = new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY
+    });
+
+    app.post("/api/detect-emotion", async (req, res) => {
+        const { text } = req.body;
+
+        const response = await openai.responses.create({
+            model: "gpt-3.5-turbo",
+            store: false,
+            input: `
+            Classify this memory as exactly one emotion:
+            happy, sadness, anger, or calm.
+
+            Memory: ${text}
+
+            Return only the emotion.
+            `,
+        });
+        const emotion = response.output_text.trim()
+        res.json({emotion});
+    });
+    }
+    
+    function detectEmotion2(text) {
         const lowerText = text.toLowerCase();
 
         if (
@@ -42,10 +70,21 @@ function AddMemoryPage({ addMemory }) {
     function saveEntry() {
         if (entry.trim() === '') return;
 
+        /* full logic for emotion detection */
+
+        let emotion;
+        try {
+            emotion = detectEmotion2(entry);
+        }
+        catch (error) {
+            console.error("Error detecting emotion:", error);
+            emotion = detectEmotion2(entry);
+        }
+
         const NewMemory = {
             id: Date.now(),
             text: entry,
-            emotion: detectEmotion(entry),
+            emotion: emotion,
             x: Math.random() * 90,
             y: Math.random() * 70,
             createdAt: new Date().toLocaleString()
@@ -53,6 +92,7 @@ function AddMemoryPage({ addMemory }) {
 
         addMemory(NewMemory);
         setEntry('');
+       
     }
 
     return (
@@ -80,5 +120,6 @@ function AddMemoryPage({ addMemory }) {
     );
 
 
-}
-export default AddMemoryPage;
+};
+
+export default AddMemoryPage
