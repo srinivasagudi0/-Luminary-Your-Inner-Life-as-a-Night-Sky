@@ -182,7 +182,8 @@ textarea { width: 100%; min-height: 190px; padding: 16px; color: white; backgrou
 }
 
 
-.surprise-overlay {
+.surprise-overlay,
+.suprise-overlay {
   position: fixed;
   inset: 0;
   z-index: 100;
@@ -191,56 +192,97 @@ textarea { width: 100%; min-height: 190px; padding: 16px; color: white; backgrou
   place-items: center;
 
   padding: 20px;
-  background: rgba(2, 5, 18, 0.75);
-  backdrop-filter: blur(6px);
+  background:
+    radial-gradient(circle at 50% 42%, #f6c85f1f, transparent 20rem),
+    rgba(2, 5, 18, 0.78);
+  backdrop-filter: blur(8px);
 }
 
-.surprise-card {
-  width: min(420px, 100%);
-  padding: 32px;
+.surprise-card,
+.suprise-card {
+  position: relative;
+  width: min(440px, 100%);
+  padding: 34px 32px 30px;
+  overflow: hidden;
 
   text-align: center;
-  background: #12182d;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    radial-gradient(circle at top, #283257 0, transparent 16rem),
+    linear-gradient(180deg, #171d35, #0e1327);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 8px;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.78),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 
   animation: show-card 0.25s ease-out;
 }
 
-.surprise-icon {
+.surprise-card::before,
+.suprise-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  pointer-events: none;
+  border: 1px solid rgba(246, 200, 95, 0.16);
+  border-radius: 6px;
+}
+
+.surprise-icon,
+.suprise-icon {
   display: block;
-  margin-bottom: 14px;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
 
   color: #facc15;
-  font-size: 36px;
+  font-size: 31px;
+  line-height: 58px;
+  background: rgba(246, 200, 95, 0.12);
+  border: 1px solid rgba(246, 200, 95, 0.28);
+  border-radius: 50%;
+  box-shadow: 0 0 34px rgba(246, 200, 95, 0.24);
   text-shadow: 0 0 20px #facc15;
 }
 
-.surprise-card h2 {
+.surprise-card h2,
+.suprise-card h2 {
   margin: 0 0 12px;
   color: white;
+  font-size: 28px;
+  line-height: 1.1;
 }
 
-.surprise-card p {
+.surprise-card p,
+.suprise-card p {
   margin: 0;
   color: #b9c4dc;
   line-height: 1.6;
 }
 
-.surprise-buttons {
+.surprise-buttons,
+.suprise-buttons,
+.supirse-buttons {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 24px;
 }
 
-.close-surprise {
+.surprise-buttons button,
+.suprise-buttons button,
+.supirse-buttons button {
+  min-width: 126px;
+}
+
+.close-surprise,
+.close-suprise {
   color: white;
   background: #334155;
 }
 
-.close-surprise:hover {
+.close-surprise:hover,
+.close-suprise:hover {
   background: #475569;
 }
 
@@ -253,4 +295,3 @@ textarea { width: 100%; min-height: 190px; padding: 16px; color: white; backgrou
     transform: translateY(0) scale(1);
   }
 }
-

@@ -17,6 +17,7 @@ function AboutPage() {
                     You write a memory like you would in a regular journal.<br />
                     Luminary plants it as a star.<br />
                     <em>The color of the star reflects the feeling inside the memory.</em>
+                    The emotion is detected by OpenAI and if any error occurs, it defaults to a simple rule selection. <br />
                 </p>
             
 
@@ -32,14 +33,12 @@ function AboutPage() {
                 <p>
                     Future version may include:
                     <ul>
-                        <li>AI emotion detection</li>
                         <li>Constellations</li>
                         <li>Memory Themes</li>
                         <li>Seasonal Skies</li>
                         <li>Beautiful exportable sky snapshots</li>
-                        <li>And more...</li>
                     </ul>
-
+lets now do css clouds say me all the 
                 </p>
 
             </section>

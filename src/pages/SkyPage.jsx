@@ -85,7 +85,7 @@ function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
         </aside>
       )}
 
-      {supriseMemory && (
+      {surpriseMemory && (
         <div className="suprise-overlay">
           <div className="suprise-card">
             <span className="suprise-icon">✨</span>

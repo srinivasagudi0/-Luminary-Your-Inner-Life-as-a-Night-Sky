@@ -76,6 +76,9 @@ function AddMemoryPage({ addMemory }) {
 
     return (
         <main>
+            <br />
+            <br />
+
             <section className="page add-page">
                 <h1> Plant a Memory </h1>
                 <br />
@@ -101,3 +104,4 @@ function AddMemoryPage({ addMemory }) {
 };
 
 export default AddMemoryPage
+
