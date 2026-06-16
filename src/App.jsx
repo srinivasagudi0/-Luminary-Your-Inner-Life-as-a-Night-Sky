@@ -34,6 +34,11 @@ function App() {
     setMemories([...memories, newMemory]);
   }
 
+  function clearMemories() {
+    setMemories([]);
+    setSelectedMemory(null);
+  }
+
   return (
     <BrowserRouter>
       <div className="app">
@@ -48,6 +53,7 @@ function App() {
                 memories={memories}
                 selectedMemory={selectedMemory}
                 setSelectedMemory={setSelectedMemory}
+                clearMemories={clearMemories}
               />
             }
           />

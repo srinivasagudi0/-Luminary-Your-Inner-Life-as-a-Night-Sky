@@ -1,22 +1,64 @@
-# Luminary - Your Inner Life as a Night Sky
+# Luminary
 
-A mood & memory journal where every entry you write becomes a living star in a personal and ever-growing universe.
+Luminary is my personal project where you will write your memory and it saves your memory in form of a star in a sky.
+It has many features that will definitely make the app feel personal to you and make you want to journal.
 
-## How it Woeks
+## Features
 
-1. Write a thought, memory, or gratitude -> it plants a star
-2. The star's color, size, anssd pulse are shaped by emotion detected in your words.
-3. Stars cluster into constellations around recurring themes the AI finds over time.
-4. The sky follows real time and seasons - dawn, dusk, winter Milky Way, summer haze
-5. Tap any star to fly back into that memory
-6. Export a "sky snapshot" to share your inner world with friends or reflect on your journey
+- 3 pages that manage everything neat and clean (Will go deep on this in the neext section).
+    - ### Sky
+        This is where all your `memories` are stored with `constellations` happening.
+    - ### Plant Memory
+        This is the simplest page, this will allow you to `write` your memory and it will be saved as a star. 
+    - ### About
+        This page helps user by saying `About Luminary` adn how it works and upcoming features.
 
-## Tech Stack
-- REACT - UI & Routing
-- Three.js - procedural star rendering in WebGL
-- Anthropic API  or OpenAI API - emotion + theme detection per entry
-- Framer Motion - silky transtions
-- IndexDB (via Dexie.js) - all local, private by default
+            
 
-# THe above is a draft README for the Luminary app, which is a mood and memory journal that visualizes entries as stars in a personal night sky. The README outlines the concept, how the app works, and the tech stack used for development. It provides a clear and concise overview of the app's features and functionality, so i dont trip over it when i start building.
+- **Seaonal Skies** - Background of the stars that *change with seasons*
 
+- **Emotion Color** - There are four colors and 
+a star will be one of them based on the 
+
+- **Memory Sky**- All memories appear as stars on the sky in the 1st page
+
+- **Click a star** - Cicking a star will show the memory you saved 
+
+- **Suprise Me** - Picks a random memory and show a card.
+
+- **Constellation** - Stars with same emeotion get connected wih a line.
+
+- **Storage** - Memories will be saved even after refresh, as the memory is saved in `localStorage`
+
+## Sky-Page 🎆
+
+This is the first page of the app. It looks like the below :-
+![alt text](image.png)
+
+This ⬆️ is the start page. It has the navigation bar (2 more pages) at the top left.
+
+Next, it shows what `type of sky`, `count of memories`, `suprise me` button and `clear memories` button(with confirmation).
+
+Finally, the sky with stars(yellow, green, blue or red).
+
+
+## Plant Memory Page 🪏
+
+![alt text](image-1.png)
+
+A simple page, write all the memory and press the button to make it appear in the sky-page.
+
+## About-Page 📃
+
+![alt text](image-2.png)
+
+This says how to use the app.
+
+## *Try-it-out*
+
+Link: (wait)
+
+
+
+
+Thanks for reading!

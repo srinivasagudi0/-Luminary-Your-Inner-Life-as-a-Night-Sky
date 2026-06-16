@@ -18,8 +18,9 @@ function getSeason() {
   return 'fall';
 }
 
-function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
+function SkyPage({ memories, selectedMemory, setSelectedMemory, clearMemories }) {
   const [surpriseMemory, setSurpriseMemory] = useState(null);
+  const [showClearPopup, setShowClearPopup] = useState(false);
   const season = getSeason();
 
   function findMemory() {
@@ -47,6 +48,13 @@ function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
             <strong>{memories.length}</strong> {memories.length === 1 ? 'memory' : 'memories'}
           </span>
           <button onClick={findMemory} disabled={!memories.length}>Surprise me</button>
+          <button
+            className="clear-button"
+            onClick={() => setShowClearPopup(true)}
+            disabled={!memories.length}
+          >
+            Clear memories
+          </button>
         </div>
       </header>
 
@@ -138,6 +146,34 @@ function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
                 onClick={() => setSurpriseMemory(null)}
               >
                 Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showClearPopup && (
+        <div className="clear-overlay">
+          <div className="clear-card">
+            <h2>Clear all memories?</h2>
+            <p>This will delete every star from your sky. You cannot undo this.</p>
+
+            <div className="clear-buttons">
+              <button
+                className="danger-button"
+                onClick={() => {
+                  clearMemories();
+                  setShowClearPopup(false);
+                }}
+              >
+                Yes, clear all
+              </button>
+
+              <button
+                className="safe-button"
+                onClick={() => setShowClearPopup(false)}
+              >
+                Cancel
               </button>
             </div>
           </div>

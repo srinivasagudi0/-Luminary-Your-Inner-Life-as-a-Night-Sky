@@ -34,7 +34,6 @@ function AboutPage() {
                 <p>
                     Future version may include:
                     <ul>
-                        <li>Seasonal Skies</li>
                         <li>Beautiful exportable sky snapshots</li>
                     </ul>
 

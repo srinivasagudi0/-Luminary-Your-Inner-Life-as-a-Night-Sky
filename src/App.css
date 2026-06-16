@@ -63,6 +63,11 @@ button, .empty-sky a {
 button:hover, .empty-sky a:hover { background: #ffda7d; transform: translateY(-1px); }
 button:disabled { opacity: .35; cursor: not-allowed; transform: none; }
 button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px solid #8ed8ff; outline-offset: 3px; }
+.clear-button {
+  color: white;
+  background: #303442;
+}
+.clear-button:hover { background: #454b5f; }
 
 .sky {
   position: relative;
@@ -226,6 +231,64 @@ button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px sol
 .button-muted { color: white; background: #303442; }
 .button-muted:hover { background: #3d4252; }
 
+.clear-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(2, 5, 18, .78);
+  backdrop-filter: blur(7px);
+}
+
+.clear-card {
+  width: min(420px, 100%);
+  padding: 28px;
+  text-align: center;
+  background: #171a25;
+  border: 1px solid #ffffff24;
+  border-radius: 8px;
+  box-shadow: 0 28px 80px #000b;
+}
+
+.clear-card h2 {
+  margin: 0 0 12px;
+  color: white;
+  font-size: 25px;
+}
+
+.clear-card p {
+  margin: 0;
+  color: #b3b7c5;
+  line-height: 1.6;
+}
+
+.clear-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.danger-button {
+  color: white;
+  background: #dc2626;
+}
+
+.danger-button:hover {
+  background: #ef4444;
+}
+
+.safe-button {
+  color: white;
+  background: #334155;
+}
+
+.safe-button:hover {
+  background: #475569;
+}
+
 .page { width: min(800px, calc(100% - 40px)); margin: auto; padding: 56px 0; }
 .add-page, .about-card { padding: 30px; background: #121521; border: 1px solid #ffffff1a; border-radius: 8px; }
 .add-page h1, .about-card h1 { margin: 0; color: white; font-size: clamp(38px, 6vw, 58px); }
@@ -365,4 +428,3 @@ textarea { width: 100%; min-height: 190px; padding: 16px; color: white; backgrou
     transform: translateY(0) scale(1);
   }
 }
-
