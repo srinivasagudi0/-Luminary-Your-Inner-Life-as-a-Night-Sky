@@ -103,5 +103,5 @@ function AddMemoryPage({ addMemory }) {
     );
 };
 
-export default AddMemoryPage
+export default AddMemoryPage;
 
