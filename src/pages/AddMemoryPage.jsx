@@ -56,6 +56,7 @@ function AddMemoryPage({ addMemory }) {
             emotion = detectEmotion2(entry);
         }
 
+
         const NewMemory = {
             id: Date.now(),
             text: entry,
@@ -66,6 +67,9 @@ function AddMemoryPage({ addMemory }) {
         };
 
         addMemory(NewMemory);
+        /* Say that entry is saved */
+        alert("Your memory has been planted as a star in your sky! \n You can view it in the 'My Sky' section. \n Thank you for sharing your thoughts with Luminary!");
+    
         setEntry('');
        
     }
@@ -74,6 +78,7 @@ function AddMemoryPage({ addMemory }) {
         <main>
             <section className="page add-page">
                 <h1> Plant a Memory </h1>
+                <br />
                 <p>
                     Write a thought like you would in a diary.
                     Luminary will turn it into star in your sky.
@@ -93,8 +98,6 @@ function AddMemoryPage({ addMemory }) {
             </section>
         </main>
     );
-
-
 };
 
 export default AddMemoryPage

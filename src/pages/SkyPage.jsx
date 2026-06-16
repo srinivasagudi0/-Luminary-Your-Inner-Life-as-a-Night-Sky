@@ -85,21 +85,40 @@ function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
         </aside>
       )}
 
-      {surpriseMemory && (
-        <div className="modal-backdrop" onClick={() => setSurpriseMemory(null)}>
-          <section className="surprise-card" onClick={(event) => event.stopPropagation()}>
-            <span className="kicker">A star found you</span>
-            <h2>Ready to look back?</h2>
-            <p>One of your memories has drifted into view.</p>
-            <div>
-              <button onClick={revealMemory}>Open memory</button>
-              <button className="button-muted" onClick={() => setSurpriseMemory(null)}>Close</button>
+      {supriseMemory && (
+        <div className="suprise-overlay">
+          <div className="suprise-card">
+            <span className="suprise-icon">✨</span>
+            
+            <h2>A Memory Found You!</h2>
+
+            <p>
+              A star from your past has drifted forward.<br />
+              Would you like to revisit it?
+
+            </p>
+            <div className="supirse-buttons">
+              <button onClick= {() => {
+                setSelectedMemory(surpriseMemory);
+                setSurpriseMemory(null);
+              }}
+              >
+                View Memory
+              </button>
+              <button 
+                className="close-suprise"
+                onClick={() => setSurpriseMemory(null)}
+              >
+                Close
+              </button>
             </div>
-          </section>
+          </div>
         </div>
       )}
+
     </main>
   );
 }
 
 export default SkyPage;
+
