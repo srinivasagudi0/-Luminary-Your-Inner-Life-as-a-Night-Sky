@@ -59,6 +59,8 @@ This says how to use the app.
 Link: (wait)
 
 
+## AI Usage
 
+I used AI as a coding assistant during this project. AI helped me improve the css and UI design, simplify styling, debug react problems, and plan some features. I can assure you that the AI usage is less than 30%.
 
 Thanks for reading!
