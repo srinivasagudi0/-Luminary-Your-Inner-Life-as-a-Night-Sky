@@ -18,6 +18,7 @@ function AboutPage() {
                     Luminary plants it as a star.<br />
                     <em>The color of the star reflects the feeling inside the memory.</em>
                     The emotion is detected by OpenAI and if any error occurs, it defaults to a simple rule selection. <br />
+                    Constellations form as you add more memories, creating a unique night sky that represents your inner world. (try to identify constellations in your sky, you might be surprised by what you find!)
                 </p>
             
 
@@ -33,8 +34,6 @@ function AboutPage() {
                 <p>
                     Future version may include:
                     <ul>
-                        <li>Constellations</li>
-                        <li>Memory Themes</li>
                         <li>Seasonal Skies</li>
                         <li>Beautiful exportable sky snapshots</li>
                     </ul>

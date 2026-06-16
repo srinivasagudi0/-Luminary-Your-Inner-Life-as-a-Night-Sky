@@ -36,6 +36,17 @@ button { cursor: pointer; }
 .sky-controls { display: flex; align-items: center; gap: 14px; }
 .star-count { color: #8f94a8; font-size: 13px; }
 .star-count strong { color: white; font-size: 18px; }
+.season-label {
+  padding: 7px 10px;
+  color: #f6c85f;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: #ffffff0d;
+  border: 1px solid #ffffff17;
+  border-radius: 6px;
+}
 
 button, .empty-sky a {
   min-height: 42px;
@@ -64,6 +75,34 @@ button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px sol
   border: 1px solid #ffffff1a;
   border-radius: 8px;
   box-shadow: 0 28px 80px #0009;
+}
+
+.sky.winter {
+  background:
+    radial-gradient(circle at 20% 75%, #6fb7ff55, transparent 34%),
+    radial-gradient(circle at 78% 18%, #dbeafe30, transparent 28%),
+    linear-gradient(145deg, #0b1b36, #050713 68%);
+}
+
+.sky.spring {
+  background:
+    radial-gradient(circle at 18% 78%, #79e6ac55, transparent 34%),
+    radial-gradient(circle at 82% 18%, #f0abfc33, transparent 30%),
+    linear-gradient(145deg, #10251f, #080a14 68%);
+}
+
+.sky.summer {
+  background:
+    radial-gradient(circle at 17% 82%, #f6c85f55, transparent 34%),
+    radial-gradient(circle at 82% 18%, #7c3aed38, transparent 30%),
+    linear-gradient(145deg, #151932, #070913 68%);
+}
+
+.sky.fall {
+  background:
+    radial-gradient(circle at 18% 80%, #f9731650, transparent 34%),
+    radial-gradient(circle at 82% 18%, #ef444433, transparent 30%),
+    linear-gradient(145deg, #23150d, #080a14 68%);
 }
 
 .sky::before, .sky::after {
@@ -326,5 +365,4 @@ textarea { width: 100%; min-height: 190px; padding: 16px; color: white; backgrou
     transform: translateY(0) scale(1);
   }
 }
-
 

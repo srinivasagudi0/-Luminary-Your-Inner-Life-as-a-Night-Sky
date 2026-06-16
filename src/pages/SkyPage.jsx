@@ -9,8 +9,18 @@ const emotionNames = {
   anger: 'Anger',
 };
 
+function getSeason() {
+  const month = new Date().getMonth();
+
+  if (month === 11 || month === 0 || month === 1) return 'winter';
+  if (month >= 2 && month <= 4) return 'spring';
+  if (month >= 5 && month <= 7) return 'summer';
+  return 'fall';
+}
+
 function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
   const [surpriseMemory, setSurpriseMemory] = useState(null);
+  const season = getSeason();
 
   function findMemory() {
     if (!memories.length) return;
@@ -32,6 +42,7 @@ function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
         </div>
 
         <div className="sky-controls">
+          <span className="season-label">{season} sky</span>
           <span className="star-count">
             <strong>{memories.length}</strong> {memories.length === 1 ? 'memory' : 'memories'}
           </span>
@@ -39,7 +50,7 @@ function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
         </div>
       </header>
 
-      <section className="sky" aria-label="Memory sky">
+      <section className={`sky ${season}`} aria-label="Memory sky">
         <div className="sky-legend" aria-label="Emotion colors">
           <span><i className="happy" />Joy</span>
           <span><i className="calm" />Calm</span>
@@ -119,11 +130,7 @@ function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
 
             </p>
             <div className="supirse-buttons">
-              <button onClick= {() => {
-                setSelectedMemory(surpriseMemory);
-                setSurpriseMemory(null);
-              }}
-              >
+              <button onClick={revealMemory}>
                 View Memory
               </button>
               <button 
