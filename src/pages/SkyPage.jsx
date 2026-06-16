@@ -56,6 +56,27 @@ function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
           </div>
         )}
 
+        <svg className="constellations" aria-hidden="true">
+          {memories.map((memory, index) => {
+            const nextMemory = memories
+              .slice(index + 1)
+              .find((other) => other.emotion === memory.emotion);
+
+            if (!nextMemory) return null;
+
+            return (
+              <line
+                key={memory.id}
+                x1={`${memory.x}%`}
+                y1={`${memory.y}%`}
+                x2={`${nextMemory.x}%`}
+                y2={`${nextMemory.y}%`}
+                className={`constellation-line ${memory.emotion}`}
+              />
+            );
+          })}
+        </svg>
+
         {memories.map((memory, index) => (
           <button
             key={memory.id}
@@ -121,4 +142,3 @@ function SkyPage({ memories, selectedMemory, setSelectedMemory }) {
 }
 
 export default SkyPage;
-

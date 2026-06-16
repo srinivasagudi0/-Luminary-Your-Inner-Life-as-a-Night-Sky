@@ -38,7 +38,7 @@ function AboutPage() {
                         <li>Seasonal Skies</li>
                         <li>Beautiful exportable sky snapshots</li>
                     </ul>
-lets now do css clouds say me all the 
+
                 </p>
 
             </section>
